@@ -13,11 +13,13 @@ input, select {
     font-size: 12px;
   }
   
-  textarea {
+  textarea, .float_btn {
     width: 100%;
-    margin: 8px 0px;
+    margin-bottom: 20px;
     padding: 8px 8px;
-    min-height: 440px;
+    min-height: 150px;
     resize: vertical;
     border: 1px solid #EBEBEB;
+    border-radius: 10px;
+    background-color: #F4F4F4;
   }

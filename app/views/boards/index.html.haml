@@ -1,0 +1,5 @@
+.container
+  %h2.heading All Boards
+  - @boards.each do |board|
+    = render 'commons/board', board: board
+  = link_to '＋Add new board', new_board_path, class: 'new_board'
