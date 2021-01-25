@@ -1,0 +1,13 @@
+.container
+  .card_content
+    %h2.heading= @task.title
+    - if user_signed_in? && current_user.tasks.exists?(id: @task.id)
+      .article_detail_actions
+        .dropdown
+          = image_tag 'actions.svg', class: 'dropbtn'
+          .dropdown-content.mini
+            = link_to 'Edit', edit_board_task_path(@board, @task)
+            = link_to 'Delete', board_task_path(@board, @task), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
+  .task_content
+    = @task.description  
+    

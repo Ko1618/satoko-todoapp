@@ -1,9 +1,9 @@
 .container
-  %h2.heading New Board
+  %h2.heading New Card
   %ul
-    - board.errors.full_messages.each do |message|
+    - @task.errors.full_messages.each do |message|
       %li= message
-  = form_with(model: board, local: true) do |f|
+  = form_with(model: @task, url: board_tasks_path, method: 'post', local: true) do |f|
     %div
       = f.label :title, 'Name'
     %div
@@ -12,4 +12,9 @@
       = f.label :description, 'Description'
     %div
       = f.text_area :description, class: 'text'
+    %div
+      = f.label :expiry, 'Expiry'
+    %div
+      = f.date_field :expiry, class: 'text'
+    %div
     = f.submit 'Submit', class: 'btn-primary'
