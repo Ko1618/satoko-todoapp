@@ -1,24 +1,26 @@
 # == Schema Information
 #
-# Table name: boards
+# Table name: tasks
 #
 #  id          :bigint           not null, primary key
 #  description :text             not null
+#  expiry      :date             not null
 #  title       :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  board_id    :bigint           not null
 #  user_id     :bigint           not null
 #
 # Indexes
 #
-#  index_boards_on_user_id  (user_id)
+#  index_tasks_on_board_id  (board_id)
+#  index_tasks_on_user_id   (user_id)
 #
-class Board < ApplicationRecord
+class Task < ApplicationRecord
   belongs_to :user
-  has_many :tasks, dependent: :destroy
+  belongs_to :board
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :description, uniqueness: true
-
+  validates :expiry, presence: true
 end
