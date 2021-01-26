@@ -4,6 +4,7 @@ class TasksController < ApplicationController
   def show
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
+    @comments = @task.comments.all
   end
 
   def new
@@ -47,7 +48,7 @@ class TasksController < ApplicationController
 
   private
   def task_params
-    params.require(:task).permit(:title, :description, :expiry, :user_id, :eyecatch)
+    params.require(:task).permit(:title, :description, :expiry, :eyecatch)
     .merge(user_id: current_user.id)
   end
 end
