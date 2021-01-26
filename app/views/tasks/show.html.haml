@@ -2,15 +2,22 @@
   .card_content
     %h2.heading= @task.title
     - if user_signed_in? && current_user.tasks.exists?(id: @task.id)
-      .article_detail_actions
+      .card_detail_actions
         .dropdown
           = image_tag 'actions.svg', class: 'dropbtn'
           .dropdown-content.mini
             = link_to 'Edit', edit_board_task_path(@board, @task)
             = link_to 'Delete', board_task_path(@board, @task), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
   - if @task.eyecatch.attached?
-    .article_image
+    .task_image
       = image_tag @task.eyecatch
   .task_content
-    = @task.description  
+    = @task.description 
+  %h2.heading Comments
+  - @comments.each do |comment|
+    .comment
+      .comment_content
+        = comment.content
+  = link_to '＋Add new comment', new_task_comment_path(@task), class: 'new_board'
+
     
