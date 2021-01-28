@@ -4,6 +4,8 @@
 @import 'form';
 @import 'common';
 @import 'card';
+@import 'flash';
+@import 'profile';
 
 html {
     word-spacing: 1px;
@@ -38,7 +40,6 @@ a {
   padding: 26px 32px;
   width: 100%;
   height: 100%;
-  position: relative;
 
   .heading {
     margin-bottom: 32px;

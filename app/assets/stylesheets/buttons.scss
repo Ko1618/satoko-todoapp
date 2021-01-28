@@ -8,6 +8,9 @@
   color: white;
   padding: 16px 0;
   font-weight: bold;
+  border-radius: 10px;
+  position: absolute;
+  bottom: 0px;
 }
 
 .btn-secondary {
@@ -18,10 +21,4 @@
   color: $primary-color;
   padding: 16px 0;
   font-weight: bold;
-}
-
-.actions {
-  position: absolute;
-  bottom: 0px;
-  width: 100%;
 }
