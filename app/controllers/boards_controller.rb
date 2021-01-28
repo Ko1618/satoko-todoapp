@@ -3,11 +3,11 @@ class BoardsController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @boards = Board.all
+    @boards = Board.all.order(updated_at: :desc)
   end
 
   def show
-    @tasks = @board.tasks.all
+    @tasks = @board.tasks.all.order(updated_at: :desc)
   end
 
   def new
@@ -17,9 +17,9 @@ class BoardsController < ApplicationController
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
-        redirect_to root_path, notice: '保存できたよ'
+        redirect_to root_path, notice: 'Successfully done'
     else
-        flash.now[:error] = '保存に失敗しました'
+        flash.now[:error] = 'Unfortunately failed'
         render :new
     end
   end
@@ -31,9 +31,9 @@ class BoardsController < ApplicationController
   def update
     @board = current_user.boards.find(params[:id])
     if @board.update(board_params)
-        redirect_to root_path, notice: '更新できました'
+        redirect_to root_path, notice: 'Succesfully updated'
     else
-        flash.now[:error] = '更新できませんでした'
+        flash.now[:error] = 'Unfortunately failed'
         render :edit
     end
   end
@@ -41,7 +41,7 @@ class BoardsController < ApplicationController
   def destroy
     board = current_user.boards.find(params[:id])
     board.destroy!
-    redirect_to root_path, notice: '削除に成功しました'
+    redirect_to root_path, notice: 'Deleted'
   end
 
   private

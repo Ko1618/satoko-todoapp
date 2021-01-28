@@ -1,44 +1,24 @@
 @import './variables';
-$heart-size: 16px;
 $avatar-size: 32px;
 
 .card {
   cursor: pointer;
   width: 100%;
-  margin-bottom: 20px;
-  padding: 16px 16px;
-  border: 1px solid #EBEBEB;
+  margin: 16px auto;
   border-radius: 10px;
-  background-color: #F4F4F4;
+  background-color: $base-box-color;
+  margin-bottom: 30px;
 
   &_title {
-    font-size: 22px;
-    margin-bottom: 8px;
     display: flex;
-    justify-content: space-between;
-  }
 
-  &_detail {
-    padding-top: 12px;
-    cursor: pointer;
-    display: flex;
-    font-size: 10px;
-
-    img {
-      width: $avatar-size;
-      height: $avatar-size;
-      border-radius: 100%;
-      margin-right: 8px;
+    h2 {
+      margin-right: 15px;
     }
   }
 
-  &_content {
-    display: flex;
-    justify-content: space-between;
-  }
-
-  &_image {
-    height: 180px;
+  &_eyecatch {
+    height: 150px;
     position: relative;
     overflow: hidden;
 
@@ -50,6 +30,61 @@ $avatar-size: 32px;
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%);
       width: 100%;
+      height:100%;
+      border-radius: 10px;
     }
+  }
+
+  &_name {
+    font-size: 22px;
+    padding: 16px 16px;
+  }
+
+  &_detail {
+    cursor: pointer;
+    display: flex;
+    font-size: 10px;
+    margin-left: 15px;
+    margin-top: 10px;
+
+    img {
+      width: $avatar-size;
+      height: $avatar-size;
+      border-radius: 100%;
+    }
+  }
+
+  &_description {
+    padding: 0px 16px;
+    opacity: 0.4;
+  }
+
+  &_bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &_message {
+    display: flex;
+
+    p {
+      padding: 16px;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+      margin-top: 16px;
+    }
+  }
+
+  &_add{
+    font-size: 18px;
+    padding: 70px 0px;
+    text-align: center;
+    border-radius: 10px;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    display: block;
   }
 }
