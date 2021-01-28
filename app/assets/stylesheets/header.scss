@@ -10,7 +10,6 @@ $back-icon-size: 16px;
   background-color: $base-bg-color;
   padding: $header-padding-y 16px;
   font-weight: bold;
-  border-bottom: 1px solid gray;
 
   a {
     color: black;
@@ -48,4 +47,11 @@ $back-icon-size: 16px;
     height: $avatar-size;
     border-radius: 100%;
   }
+}
+
+.header_line {
+  width: 100%;  
+  background: #000000;
+  mix-blend-mode: normal;
+  opacity: 0.1;
 }

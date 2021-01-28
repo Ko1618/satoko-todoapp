@@ -16,9 +16,9 @@ class TasksController < ApplicationController
     board = Board.find(params[:board_id])
     @task = board.tasks.build(task_params)
     if @task.save
-      redirect_to board_path(board), notice: '保存できたよ'
+      redirect_to board_path(board), notice: 'Successfully done'
     else
-      flash.now[:error] = '保存に失敗しました'
+      flash.now[:error] = 'Unfortunately failed'
       render :new
     end
   end
@@ -32,18 +32,18 @@ class TasksController < ApplicationController
     @board = Board.find(params[:board_id])
     @task = @board.tasks.find(params[:id])
     if @task.update(task_params)
-        redirect_to board_task_path(board_id: @board.id, id: @task.id), notice: '更新できました'
+        redirect_to board_task_path(board_id: @board.id, id: @task.id), notice: 'Succesfully updated'
     else
-        flash.now[:error] = '更新できませんでした'
+        flash.now[:error] = 'Unfortunately failed'
         render :edit
     end
   end
 
   def destroy
-    @board = Board.find(params[:board_id])
-    @task = @board.tasks.find(params[:id])
-    @task.destroy!
-    redirect_to board_path(@board), notice: '削除に成功しました'
+    board = Board.find(params[:board_id])
+    task = board.tasks.find(params[:id])
+    task.destroy!
+    redirect_to board_path(board), notice: 'Deleted'
   end
 
   private

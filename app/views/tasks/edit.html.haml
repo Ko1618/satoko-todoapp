@@ -2,7 +2,7 @@
   %ul
     - @task.errors.full_messages.each do |message|
       %li= message
-  = form_with(model: @task, url: board_task_path(board_id: @board.id, id: @task.id), method: 'put', local: true) do |f|
+  = form_with(model: @task, url: board_task_path(@board, @task), method: 'put', local: true) do |f|
     %div
       = f.label :eyecatch, 'Eyecatch'
     %div
@@ -19,4 +19,6 @@
       = f.label :expiry, 'Expiry'
     %div
       = f.date_field :expiry, class: 'text'
-    = f.submit 'Save', class: 'btn-primary'
+    .yohaku  
+      .actions
+        = f.submit 'Save', class: 'btn-primary'

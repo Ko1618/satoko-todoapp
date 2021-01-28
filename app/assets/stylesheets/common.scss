@@ -6,22 +6,19 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  float: right;
+  display: flex;
 }
 
 .dropdown-content {
   font-weight: normal;
   display: none;
   right: 0;
+  top: 30px;
   position: absolute;
   background-color: white;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
-
-  &.mini {
-      min-width: 100px;
-  }
 }
 
 .dropdown-content a {
@@ -29,6 +26,7 @@
   text-decoration: none;
   display: block;
   color: $text-base-color;
+  font-size: 16px;
 }
 
 .dropdown-content a:hover {
@@ -36,14 +34,5 @@
 }
 
 .dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.new_board {
-  font-size: 18px;
-  padding: 70px 0px;
-  text-align: center;
-  border-radius: 10px;
-  border: 1px dashed rgba(0, 0, 0, 0.2);
   display: block;
 }

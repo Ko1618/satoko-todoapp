@@ -1,21 +1,18 @@
 .container
-  %h2.heading All Boards
+  %h2 All Boards
   - @boards.each do |board|
     = link_to board_path(board) do
       .card
-        .card_title
+        .card_name
           = board.title
-          - if board.user == current_user
-            .dropdown
-              = image_tag 'actions.svg', class: 'dropbtn'
-              .dropdown-content.mini
-                = link_to 'Edit', edit_board_path(board)
-                = link_to 'Delete', board_path(board), data: { method: 'delete', confirm: 'Are you sure to delete？' }
         .card_description
           = board.description
-        .card_detail
-          = image_tag board.user.avatar_image
-          %div
-            %p= board.author_name
-            %p= board.display_created_at
-  = link_to '＋Add new board', new_board_path, class: 'new_board'
+        .card_bottom
+          .card_detail
+            = image_tag board.user.avatar_image
+            %div
+              %p= board.author_name
+              %p= board.display_created_at
+          .card_message
+            %p #{board.tasks.count} tasks
+  = link_to '＋Add new board', new_board_path, class: 'card_add'

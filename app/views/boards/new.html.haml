@@ -1,1 +1,14 @@
-= render 'form', board: @board
+.container  
+  %ul
+    - @board.errors.full_messages.each do |message|
+      %li= message
+  = form_with(model: @board ,url: boards_path, method: 'post',local: true) do |f| 
+    %div
+      = f.label :title, 'Name'
+    %div
+      = f.text_field :title, class: 'text'
+    %div
+      = f.label :description, 'Description'
+    %div
+      = f.text_area :description, class: 'text'
+    = f.submit 'Submit' ,class: 'btn-primary'

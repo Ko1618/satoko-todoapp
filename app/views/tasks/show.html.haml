@@ -1,23 +1,24 @@
 .container
-  .task_header
-    %h2.heading= @task.title
+  .task_title
+    %h2= @task.title
     - if @task.user == current_user
       .dropdown
         = image_tag 'actions.svg', class: 'dropbtn'
-        .dropdown-content.mini
+        .dropdown-content
           = link_to 'Edit', edit_board_task_path(@board, @task)
           = link_to 'Delete', board_task_path(@board, @task), data: { method: 'delete', confirm: '本当に削除してもよろしいですか？' }
   - if @task.eyecatch.attached?
-    .task_image
+    .task_eyecatch
       = image_tag @task.eyecatch
-  .card_content
+  .task_content
     = @task.description
-  
-  %h2.heading Comments
+  .comment_title
+    %h2 Comments
   - @comments.each do |comment|
     .comment
+      .comment_detail
+        = image_tag comment.user.avatar_image
       .comment_content
         = comment.content
-  = link_to '＋Add new comment', new_task_comment_path(@task), class: 'new_board'
-
+  = link_to '＋Add new comment', new_task_comment_path(@task), class: 'card_add'
     

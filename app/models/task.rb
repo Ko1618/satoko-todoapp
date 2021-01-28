@@ -25,4 +25,16 @@ class Task < ApplicationRecord
   validates :title, presence: true
   validates :description, presence: true
   validates :expiry, presence: true
+
+  def display_created_at
+    I18n.l(self.created_at, format: :default)
+  end
+
+  def expiry_date
+    self.expiry.strftime('%y/%m/%d')
+  end
+
+  def author_name
+    user.display_name
+  end
 end

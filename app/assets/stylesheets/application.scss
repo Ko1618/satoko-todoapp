@@ -5,6 +5,7 @@
 @import 'common';
 @import 'card';
 @import 'flash';
+@import 'task';
 @import 'profile';
 
 html {
@@ -37,11 +38,7 @@ a {
 }
 
 .container {
-  padding: 26px 32px;
+  padding: 16px 16px;
   width: 100%;
   height: 100%;
-
-  .heading {
-    margin-bottom: 32px;
-  }
 }
