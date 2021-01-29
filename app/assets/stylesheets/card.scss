@@ -4,13 +4,13 @@ $avatar-size: 32px;
 .card {
   cursor: pointer;
   width: 100%;
-  margin: 16px auto;
+  margin-bottom: 16px;
   border-radius: 10px;
   background-color: $base-box-color;
-  margin-bottom: 30px;
 
   &_title {
     display: flex;
+    margin-bottom: 16px;
 
     h2 {
       margin-right: 15px;
