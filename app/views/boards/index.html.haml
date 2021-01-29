@@ -1,5 +1,5 @@
 .container
-  %h2 All Boards
+  %h2.heading All Boards
   - @boards.each do |board|
     = link_to board_path(board) do
       .card
