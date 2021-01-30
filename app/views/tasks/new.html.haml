@@ -20,5 +20,7 @@
       = f.label :expiry, 'Expiry'
     %div
       = f.date_field :expiry, class: 'text'
-    %div
-    = f.submit 'Submit', class: 'btn-primary'
+    .yohaku  
+      .actions
+        = f.submit 'Save', class: 'btn-primary'
+        
